@@ -1,6 +1,6 @@
 local t = Def.ActorFrame {};
 
---Artist Information
+--Coin Information
 t[#t+1] = LoadFont("_system1") .. {
 	InitCommand=cmd(horizalign,center;x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-108;);
 	OnCommand=cmd(playcommand,"Refresh");
@@ -11,16 +11,18 @@ t[#t+1] = LoadFont("_system1") .. {
 		local bReady = GAMESTATE:GetNumSidesJoined() > 0;
 		local sText = ""
 
-		if bCanPlay or bReady then
-			sText = "PUSH START BUTTON";
-		else
-			sText = "INSERT COIN(S)";
-		end
-
 		if GAMESTATE:IsEventMode() then
 			sText = "EVENT MODE";
 		else
-			sText = "FREE PLAY";
+	        if GAMESTATE:GetCoinMode() == 'CoinMode_Free' then
+	          sText = "FREE PLAY";
+	        else
+				if bCanPlay or bReady then
+					sText = "PUSH START BUTTON";
+				else
+					sText = "INSERT COIN(S)";
+				end
+	        end
 		end
 
 		self:settext( sText );
