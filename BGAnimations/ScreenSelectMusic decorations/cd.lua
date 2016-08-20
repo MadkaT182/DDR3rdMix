@@ -6,22 +6,21 @@ t[#t+1] = Def.ActorFrame {
 	BeginCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-159;draworder,1);
 	OffCommand=cmd(linear,1;diffusealpha,0);
 
+	--CD Mask
+	Def.ActorFrame{
+		Name="CdMask";
+		InitCommand=cmd();
+		LoadActor(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/cd_mask"))..{
+			OnCommand=cmd(blend,'BlendMode_NoEffect';zwrite,true;clearzbuffer,false;);
+		};
+	};
+
 	--CD Sprite object
 	Def.Sprite{
 		Name="SCd";
 		InitCommand=cmd();
+		OnCommand=cmd(ztest,true;);
 	};
-
-	-- --CD Mask
-	-- Def.ActorFrame{
-	-- 	Name="CdMask";
-	-- 	InitCommand=cmd();
-	-- 	LoadActor(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/cd_mask"))..{
-	-- 		--InitCommand=cmd(zbuffer,true;blend,'BlendMode_NoEffect');
-	-- 		--InitCommand=cmd(zwrite,true;blend,'BlendMode_NoEffect');
-	-- 		--InitCommand=cmd(blend,'BlendMode_NoEffect');
-	-- 	};
-	-- };
 
 	--Overlay
 	Def.ActorFrame{
