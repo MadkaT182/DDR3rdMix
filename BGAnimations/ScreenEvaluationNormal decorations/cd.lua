@@ -3,7 +3,7 @@ local t = Def.ActorFrame {};
 --CD
 t[#t+1] = Def.ActorFrame {
 	InitCommand=function(self) c = self:GetChildren(); end;
-	BeginCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-159;draworder,1);
+	BeginCommand=cmd(draworder,1;playcommand,"Set");
 	OffCommand=cmd(linear,1;diffusealpha,0);
 
 	--CD Mask
@@ -33,8 +33,7 @@ t[#t+1] = Def.ActorFrame {
 		--Go up
 		self:stoptweening();
 		self:linear(.05);
-		--self:addy(-480);
-		self:y(SCREEN_BOTTOM-639);
+		--self:y(SCREEN_BOTTOM-639);
 		local song = GAMESTATE:GetCurrentSong();
 		if song then
 			local discimg = "fallback";
@@ -345,12 +344,12 @@ t[#t+1] = Def.ActorFrame {
 				--Verify Jacket
 				if song:HasJacket() then
 					c.SCd:LoadBackground(song:GetJacketPath());
-					c.SCd:setsize(256,256);
+					--c.SCd:setsize(84,84);
 					c.CdOver:diffusealpha(1);
 				elseif song:HasBackground() then
 					--Verify BG
 					c.SCd:LoadFromSongBackground(GAMESTATE:GetCurrentSong());
-					c.SCd:setsize(256,256);
+					--c.SCd:setsize(84,84);
 					c.CdOver:diffusealpha(1);
 				else
 					--Fallback CD
@@ -359,6 +358,9 @@ t[#t+1] = Def.ActorFrame {
 			else
 				c.SCd:Load(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/"..discimg));
 			end
+			--c.CdMask:setsize(84,84);
+			c.SCd:setsize(86,86);
+			--c.CdOver:setsize(84,84);
 
 		else
 			--Not song
@@ -366,10 +368,8 @@ t[#t+1] = Def.ActorFrame {
 		end;
 		--Fall down again
 		self:linear(.05);
-		self:y(SCREEN_BOTTOM-159);
+		self:y(SCREEN_TOP+190);
 	end;
-
-	CurrentSongChangedMessageCommand=cmd(playcommand,"Set");
 };
 
 return t

@@ -14,6 +14,13 @@ else
 	};
 end;
 
+--CD
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "cd" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP-86;);
+	}
+};
+
 --Player stats
 if GAMESTATE:IsPlayerEnabled(PLAYER_1) then
 	--Statsp1

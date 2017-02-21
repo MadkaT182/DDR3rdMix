@@ -100,6 +100,37 @@ local OptionRowDefault = {
 	}
 }
 
+function OptionRowSpecialArrow()
+	return{
+		Name="SpecialArrow",
+		LayoutType = "ShowAllInRow",
+		SelectType = "SelectOne",
+		OneChoiceForAllPlayers = false,
+		ExportOnChange = false,
+		Choices = {
+			"Vivid",
+			"Note",
+			"Flat",
+			"Rainbow"
+		},
+		LoadSelections = function(self, list, pn)
+			if GetUserPrefB("UserPrefSpecialArrow" .. ToEnumShortString(pn)) then
+				local sNote = GetUserPrefB("UserPrefSpecialArrow" .. ToEnumShortString(pn))
+				if sNote then
+					list[2] = sNote
+				else
+					list[1] = "Vivid"
+				end
+			else
+				list[1] = "Vivid"
+			end
+		end,
+		SaveSelections = function(self, list, pn)
+			local sSave = list[2] and sNote or "Vivid"
+			SetUserPref("UserPrefSpecialArrow" .. ToEnumShortString(pn), sSave)
+		end
+	}
+end
 
 function CustomOptionRow( name )
 	local OptRow = setmetatable( {}, OptionRowDefault )

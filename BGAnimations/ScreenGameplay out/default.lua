@@ -7,7 +7,7 @@ if not GAMESTATE:IsDemonstration() then
 	};
 
 	t[#t+1] = Def.ActorFrame {
-		LoadActor( "../_doorclose" )..{}
+		LoadActor( "../_doorclose/delay" )..{};
 	};
 
 	t[#t+1] = Def.ActorFrame {

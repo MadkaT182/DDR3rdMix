@@ -315,6 +315,9 @@ local t = Def.ActorFrame {
 					discimg = "74";
 				end
 
+				--PSX Missing
+				--After the game of love
+
 				-- if songtit == "" then
 				-- discimg = "75";
 				-- end
