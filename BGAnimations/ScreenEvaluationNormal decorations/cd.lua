@@ -344,12 +344,10 @@ t[#t+1] = Def.ActorFrame {
 				--Verify Jacket
 				if song:HasJacket() then
 					c.SCd:LoadBackground(song:GetJacketPath());
-					--c.SCd:setsize(84,84);
 					c.CdOver:diffusealpha(1);
 				elseif song:HasBackground() then
 					--Verify BG
 					c.SCd:LoadFromSongBackground(GAMESTATE:GetCurrentSong());
-					--c.SCd:setsize(84,84);
 					c.CdOver:diffusealpha(1);
 				else
 					--Fallback CD
@@ -358,9 +356,7 @@ t[#t+1] = Def.ActorFrame {
 			else
 				c.SCd:Load(THEME:GetPathG("", "MusicWheelItem Song NormalPart/cd/"..discimg));
 			end
-			--c.CdMask:setsize(84,84);
-			c.SCd:setsize(86,86);
-			--c.CdOver:setsize(84,84);
+			c.SCd:setsize(256,256);
 
 		else
 			--Not song

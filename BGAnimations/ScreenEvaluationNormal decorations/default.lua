@@ -17,7 +17,8 @@ end;
 --CD
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "cd" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP-86;);
+		InitCommand=cmd(zoom,.3281);
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+43);
 	}
 };
 
