@@ -61,6 +61,9 @@ for pn in ivalues(GAMESTATE:GetEnabledPlayers()) do
 	end
 end
 
+--Danger Filter
+t[#t+1] = LoadActor("../ScreenGameplay Danger");
+
 --Stage frame
 t[#t+1] = LoadActor("../_stageFrame")..{
 	OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+54);

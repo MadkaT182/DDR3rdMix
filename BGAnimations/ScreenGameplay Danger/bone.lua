@@ -1,0 +1,53 @@
+local t = Def.Sprite {
+	Texture="_dangerbone 4x6";
+	Frame0000=1;
+	Frame0001=2;
+	Frame0002=3;
+	Frame0003=4;
+	Frame0004=5;
+	Frame0005=6;
+	Frame0006=7;
+	Frame0007=8;
+	Frame0008=9;
+	Frame0009=10;
+	Frame0010=11;
+	Frame0011=12;
+	Frame0012=13;
+	Frame0013=14;
+	Frame0014=15;
+	Frame0015=16;
+	Frame0016=17;
+	Frame0017=18;
+	Frame0018=19;
+	Frame0019=20;
+	Frame0020=21;
+	Frame0021=22;
+	Frame0022=0;
+
+	Delay0000=0.06;
+	Delay0001=0.04;
+	Delay0002=0.04;
+	Delay0003=0.04;
+	Delay0004=0.04;
+	Delay0005=0.04;
+	Delay0006=0.06;
+	Delay0007=0.04;
+	Delay0008=0.04;
+	Delay0009=0.04;
+	Delay0010=0.04;
+	Delay0011=0.03;
+	Delay0012=0.03;
+	Delay0013=0.04;
+	Delay0014=0.04;
+	Delay0015=0.04;
+	Delay0016=0.04;
+	Delay0017=0.06;
+	Delay0018=0.04;
+	Delay0019=0.04;
+	Delay0020=0.04;
+	Delay0021=0.04;
+	Delay0022=0.06;
+
+};
+
+return t;
