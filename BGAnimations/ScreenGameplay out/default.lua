@@ -3,7 +3,7 @@ local t = Def.ActorFrame {};
 if not GAMESTATE:IsDemonstration() then
 
 	t[#t+1] = Def.Quad{
-		InitCommand=cmd(Center;FullScreen;diffusecolor,color("#FFFFFF");diffusealpha,0;sleep,.3;linear,0.5;diffusealpha,1);
+		OnCommand=cmd(Center;FullScreen;diffusecolor,color("#FFFFFF");diffusealpha,0;sleep,.3;linear,.5;diffusealpha,1);
 	};
 
 	t[#t+1] = Def.ActorFrame {
