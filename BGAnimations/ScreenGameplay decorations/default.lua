@@ -1,6 +1,9 @@
 local maxSegments = 150
 local t = Def.ActorFrame {};
 
+--Danger Filter
+t[#t+1] = LoadActor("../ScreenGameplay Danger");
+
 -- LUA Based LifeMeter bar (by Ov3rHell3XoduZ)
 for pn in ivalues(GAMESTATE:GetEnabledPlayers()) do
 	t[#t+1] = Def.ActorFrame{
@@ -22,8 +25,8 @@ end
 for pn in ivalues(GAMESTATE:GetEnabledPlayers()) do
 	for i = 1,17 do
 		t[#t+1] = Def.Sprite{
-			BeginCommand=cmd(y,SCREEN_TOP+43;addx,26;diffusealpha,0.35);
-			InitCommand=function(self) if pn == PLAYER_1 then self:x(SCREEN_CENTER_X-320+12*i) else self:x(SCREEN_CENTER_X+320-12*i) end end;
+			BeginCommand=cmd(y,SCREEN_TOP+44;diffusealpha,0.35);
+			InitCommand=function(self) if pn == PLAYER_1 then self:x(SCREEN_CENTER_X-290+12*i) else self:x(SCREEN_CENTER_X+290-12*i) end end;
 			OnCommand=function(self)
 				self:Load(THEME:GetCurrentThemeDirectory().."BGAnimations/ScreenGameplay decorations/LifeMeterBar over 17x1.png")
 				self:pause()
@@ -31,8 +34,8 @@ for pn in ivalues(GAMESTATE:GetEnabledPlayers()) do
 			end;
 		};
 		t[#t+1] = Def.Sprite{
-			BeginCommand=cmd(y,SCREEN_TOP+43;addx,26;);
-			InitCommand=function(self) if pn == PLAYER_1 then self:x(SCREEN_CENTER_X-320+11*i) else self:x(SCREEN_CENTER_X+320-11*i) end end;
+			BeginCommand=cmd(y,SCREEN_TOP+44;);
+			InitCommand=function(self) if pn == PLAYER_1 then self:x(SCREEN_CENTER_X-292+12*i) else self:x(SCREEN_CENTER_X+290-12*i) end end;
 			OnCommand=function(self)
 				self:sleep(i / 20)
 				self:queuecommand("Anim")
@@ -60,9 +63,6 @@ for pn in ivalues(GAMESTATE:GetEnabledPlayers()) do
 		};
 	end
 end
-
---Danger Filter
-t[#t+1] = LoadActor("../ScreenGameplay Danger");
 
 --Stage frame
 t[#t+1] = LoadActor("../_stageFrame")..{
