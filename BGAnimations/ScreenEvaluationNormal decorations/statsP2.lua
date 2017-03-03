@@ -14,7 +14,7 @@ local Boo = string.sub(Space..STATSMAN:GetCurStageStats():GetPlayerStageStats(PL
 
 --Marvelous--
 t[#t+1] = LoadFont("_resultNum")..{
-	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-246;addx,-28;horizalign,right);
+	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-246;addx,220;horizalign,right);
 	OnCommand=function(self)
 		self:settextf(Marvelous);
 	end;
@@ -27,7 +27,7 @@ t[#t+1] = LoadFont("_resultLbl")..{
 };
 --Perfect--
 t[#t+1] = LoadFont("_resultNum")..{
-	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-216;addx,-28;horizalign,right);
+	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-216;addx,220;horizalign,right);
 	OnCommand=function(self)
 		self:settextf(Perfect);
 	end;
@@ -40,7 +40,7 @@ t[#t+1] = LoadFont("_resultLbl")..{
 };
 --Great--
 t[#t+1] = LoadFont("_resultNum")..{
-	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-186;addx,-28;horizalign,right);
+	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-186;addx,220;horizalign,right);
 	OnCommand=function(self)
 		self:settextf(Great);
 	end;
@@ -53,7 +53,7 @@ t[#t+1] = LoadFont("_resultLbl")..{
 };
 --Good--
 t[#t+1] = LoadFont("_resultNum")..{
-	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-156;addx,-28;horizalign,right);
+	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-156;addx,220;horizalign,right);
 	OnCommand=function(self)
 		self:settextf(Good);
 	end;
@@ -66,7 +66,7 @@ t[#t+1] = LoadFont("_resultLbl")..{
 };
 --Boo--
 t[#t+1] = LoadFont("_resultNum")..{
-	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-126;addx,-28;horizalign,right);
+	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-126;addx,220;horizalign,right);
 	OnCommand=function(self)
 		self:settextf(Almost);
 	end;
@@ -79,7 +79,7 @@ t[#t+1] = LoadFont("_resultLbl")..{
 };
 --Miss--
 t[#t+1] = LoadFont("_resultNum")..{
-	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-96;addx,-28;horizalign,right);
+	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-96;addx,220;horizalign,right);
 	OnCommand=function(self)
 		self:settextf(Boo);
 	end;
@@ -92,7 +92,7 @@ t[#t+1] = LoadFont("_resultLbl")..{
 };
 --Saved--
 t[#t+1] = LoadFont("_resultNum")..{
-	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-66;addx,-28;horizalign,right);
+	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-66;addx,220;horizalign,right);
 	OnCommand=function(self)
 		self:settextf("----");
 	end;
@@ -105,7 +105,7 @@ t[#t+1] = LoadFont("_resultLbl")..{
 };
 --Max Combo--
 t[#t+1] = LoadFont("Combo numbers")..{
-	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-33;addx,-28;horizalign,right);
+	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-33;addx,220;horizalign,right);
 	OnCommand=function(self)
 		self:settextf(Combo);
 	end;

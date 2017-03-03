@@ -65,7 +65,7 @@ end
 if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
 	--Statsp2
 	t[#t+1] = LoadActor("statsP2")..{
-		OnCommand=cmd(x,SCREEN_CENTER_X+131;y,SCREEN_CENTER_Y-64)
+		OnCommand=cmd(x,SCREEN_CENTER_X+48;y,SCREEN_CENTER_Y-64)
 	};
 	--Song score p1
 	t[#t+1] = Def.RollingNumbers {
