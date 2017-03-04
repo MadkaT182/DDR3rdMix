@@ -7,9 +7,17 @@ t[#t+1] = Def.ActorFrame {
 };
 
 t[#t+1] = Def.ActorFrame {
-	LoadActor( "gameover" )..{
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;);
-	}
+	--Title
+	LoadFont("LyricDisplay text")..{
+	InitCommand=cmd(addx,SCREEN_WIDTH/2;y,SCREEN_TOP+187;diffusecolor,color("#3EFF47"));
+		OnCommand=function(self)
+		self:settext("THANK YOU FOR PLAYING");
+		end;
+	};
+	--Game over
+	LoadActor("gameover")..{
+		OnCommand=cmd(Center;addy,1);
+	};
 };
 
 t[#t+1] = Def.ActorFrame {
