@@ -23,18 +23,14 @@ t[#t+1] = Def.ActorFrame {
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "arr2" )..{
 		InitCommand=cmd(x,SCREEN_CENTER_X-172;y,SCREEN_CENTER_Y+54;diffusealpha,0);
-		--MenuLeftP1MessageCommand=cmd();
-		--MenuLeftP2MessageCommand=cmd();
-		CurrentSongChangedMessageCommand=cmd(stoptweening;x,SCREEN_CENTER_X-172;smooth,0.1;diffusealpha,1;smooth,0.1;diffusealpha,0;);
+		PreviousSongMessageCommand=cmd(stoptweening;x,SCREEN_CENTER_X-172;smooth,0.1;diffusealpha,1;smooth,0.1;diffusealpha,0;);
 	}
 };
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "arr2" )..{
 		InitCommand=cmd(x,SCREEN_CENTER_X+178;y,SCREEN_CENTER_Y+54;diffusealpha,0;zoomx,-1);
-		-- MenuRightP1MessageCommand=cmd();
-		-- MenuRightP2MessageCommand=cmd();
-		CurrentSongChangedMessageCommand=cmd(stoptweening;x,SCREEN_CENTER_X+178;smooth,0.1;diffusealpha,1;smooth,0.1;diffusealpha,0;);
+		NextSongMessageCommand=cmd(stoptweening;x,SCREEN_CENTER_X+178;smooth,0.1;diffusealpha,1;smooth,0.1;diffusealpha,0;);
 	}
 };
 
