@@ -2,8 +2,8 @@ local t = Def.ActorFrame {};
 
 t[#t+1] = Def.ActorFrame {
 	InitCommand=cmd(Center);
-	GainFocusCommand=cmd(zoom,1);
-	LoseFocusCommand=cmd(zoom,.7349);
+	GainFocusCommand=cmd(zoom,1;diffuse,1,1,1,1);
+	LoseFocusCommand=cmd(zoom,.7349;diffuse,0.25,0.25,0.25,1);
 
 	LoadActor("Mode/speaker")..{};
 	LoadActor("Mode/blue")..{};
