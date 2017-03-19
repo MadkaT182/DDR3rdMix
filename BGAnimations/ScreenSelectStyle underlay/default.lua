@@ -10,25 +10,11 @@ t[#t+1] = Def.ActorFrame {
 --Dancers
 	LoadActor("../ScreenTitleMenu background/md")..{
 		InitCommand=cmd(Center;addx,-200;addy,10;zoom,1.81;diffuse,.4,.4,1,2;playcommand,"Set");
-		SetCommand=function (self)
-			if GAMESTATE:IsSideJoined(PLAYER_1) then
-				self:diffusealpha(1);
-			else
-				self:diffusealpha(0);
-			end;
-		end;
-		--SystemMessageMessageCommand=cmd(playcommand,"Set");
+		Condition=GAMESTATE:IsSideJoined(PLAYER_1);
 	};
 	LoadActor("../ScreenTitleMenu background/fd")..{
 		InitCommand=cmd(Center;addx,200;addy,10;zoom,1.81;diffuse,.95,.8,.7,.65;playcommand,"Set");
-		SetCommand=function (self)
-			if GAMESTATE:IsSideJoined(PLAYER_2) then
-				self:diffusealpha(1);
-			else
-				self:diffusealpha(0);
-			end;
-		end;
-		--SystemMessageMessageCommand=cmd(playcommand,"Set");
+		Condition=GAMESTATE:IsSideJoined(PLAYER_2);
 	};
 };
 
