@@ -1,5 +1,12 @@
 local t = Def.ActorFrame {};
 
+--PlayMode
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "_style" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+82)
+	}
+};
+
 --Player Indicator
 t[#t+1] = Def.ActorFrame {
 	LoadActor("Ind1p")..{
