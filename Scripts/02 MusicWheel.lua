@@ -1,6 +1,6 @@
 function WheelTransform(self,offsetFromCenter,itemIndex,numItems)
 	if GAMESTATE:IsCourseMode() then
-		self:y(offsetFromCenter*48);
+		self:y(offsetFromCenter*17);
 	else
 		self:x( offsetFromCenter*180 );
 		self:y((itemIndex/2)*math.pi);
