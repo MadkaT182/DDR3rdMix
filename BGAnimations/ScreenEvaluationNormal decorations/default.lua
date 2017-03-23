@@ -95,5 +95,22 @@ if GAMESTATE:IsPlayerEnabled(PLAYER_2) then
 	};
 end
 
+if GAMESTATE:IsCourseMode() then
+	--Course Name
+	t[#t+1] = LoadFont("ScreenSystemLayer credits normal") .. {
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+68;maxwidth,SCREEN_WIDTH;playcommand,"Set");
+		SetCommand=function(self)
+			local course = GAMESTATE:GetCurrentCourse();
+			if course then
+				if GroupNameChange then
+					self:settext(ChangeGroupName(course:GetDisplayFullTitle()));
+				else
+					self:settext(course:GetDisplayFullTitle());
+				end;
+			end;
+		end;
+		OffCommand=cmd();
+	};
+end
 
 return t
