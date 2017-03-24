@@ -342,7 +342,7 @@ local t = Def.ActorFrame {
 				discimg = "80";
 				end
 
-				if songtit == "La Senorita Virtual" then
+				if songtit == "La Senorita Virtual" or songtit == "La Señorita Virtual" then
 				discimg = "81";
 				end
 
