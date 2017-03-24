@@ -311,36 +311,44 @@ local t = Def.ActorFrame {
 					discimg = "73";
 				end
 
-				if songtit == "sorry" then
+				--Konami missing fallback
+				if songtit == "XsorryX" then
 					discimg = "74";
 				end
 
-				--PSX Missing
-				--After the game of love
+				--PSX Bonus
+				if songtit == "BUMBLE BEE" then
+				discimg = "75";
+				end
 
-				-- if songtit == "" then
-				-- discimg = "75";
-				-- end
+				if songtit == "GIMME GIMME GIMME" then
+				discimg = "76";
+				end
 
-				-- if songtit == "" then
-				-- discimg = "76";
-				-- end
+				--3rd Mix PLUS
+				if songtit == "AFTER THE GAME OF LOVE" then
+				discimg = "77";
+				end
 
-				-- if songtit == "" then
-				-- discimg = "77";
-				-- end
+				if songtit == "CUTIE CHASER" then
+				discimg = "78";
+				end
 
-				-- if songtit == "" then
-				-- discimg = "78";
-				-- end
+				if songtit == "DROP THE BOMB" then
+				discimg = "79";
+				end
 
-				-- if songtit == "" then
-				-- discimg = "79";
-				-- end
+				if songtit == "LOVE THIS FEELIN'" then
+				discimg = "80";
+				end
 
-				-- if songtit == "" then
-				-- discimg = "80";
-				-- end
+				if songtit == "La Senorita Virtual" then
+				discimg = "81";
+				end
+
+				if songtit == "think ya better D" then
+				discimg = "82";
+				end
 
 				-- if discimg == "fallback" then
 				-- 	--Verify Jacket
