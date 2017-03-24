@@ -311,20 +311,19 @@ local t = Def.ActorFrame {
 					discimg = "73";
 				end
 
-				if songtit == "sorry" then
+				--Konami missing fallback
+				if songtit == "XsorryX" then
 					discimg = "74";
 				end
 
 				--PSX Missing
-				--After the game of love
+				if songtit == "BUMBLE BEE" then
+				discimg = "75";
+				end
 
-				-- if songtit == "" then
-				-- discimg = "75";
-				-- end
-
-				-- if songtit == "" then
-				-- discimg = "76";
-				-- end
+				if songtit == "GIMME GIMME GIMME" then
+				discimg = "76";
+				end
 
 				-- if songtit == "" then
 				-- discimg = "77";
