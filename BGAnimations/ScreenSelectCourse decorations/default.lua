@@ -15,4 +15,14 @@ t[#t+1] = LoadFont("_nonstop") .. {
 	CurrentCourseChangedMessageCommand=cmd(playcommand,"Set");
 	OffCommand=cmd();
 };
+
+--Course Contents
+t[#t+1] = LoadActor("courselist") .. {};
+
+t[#t+1] = Def.ActorFrame {
+	LoadActor( "selcours" )..{
+		OnCommand=cmd(Center;addx,-2;addy,-216);
+	}
+};
+
 return t
