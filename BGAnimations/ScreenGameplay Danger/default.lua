@@ -9,14 +9,7 @@ HealthStateChangedMessageCommand=function(self, param)
 	end
 end;
 
-LoadActor("bone")..{
-	InitCommand=cmd(FullScreen;);
-	-- OnCommand=function(self)
-	-- 	local w = DISPLAY:GetDisplayWidth() / self:GetWidth()*2;
-	-- 	local h = DISPLAY:GetDisplayHeight() / self:GetHeight()*2;
-	-- 	self:customtexturerect(0,0,w,h);
-	-- end;
-};
+LoadActor("wallbone")..{};
 
 LoadActor("danger")..{
 	OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+100);
