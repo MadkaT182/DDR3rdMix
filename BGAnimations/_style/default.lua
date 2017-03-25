@@ -12,9 +12,10 @@ if GAMESTATE:IsEventMode() then
 -- 		vMode = "medium";
 -- 	end
 
--- 	if getenv("SPMode") == "nonstop" then
--- 		vMode = "nonstop";
--- 	end
+else
+	if GAMESTATE:IsCourseMode() then
+		vMode = "nonstop";
+	end
 end;
 
 t[#t+1] = Def.ActorFrame {
