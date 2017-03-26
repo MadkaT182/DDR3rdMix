@@ -3,7 +3,7 @@ local t = Def.ActorFrame {};
 if GAMESTATE:IsCourseMode() then
 	t[#t+1] = Def.ActorFrame {
 		LoadActor( "course" )..{
-			OnCommand=cmd(Center;FullScreen);
+			OnCommand=cmd(FullScreen);
 		};
 		LoadActor( "songframe" )..{
 			OnCommand=cmd(Center;addx,184;addy,-53);
@@ -15,8 +15,11 @@ if GAMESTATE:IsCourseMode() then
 else
 	t[#t+1] = Def.ActorFrame {
 		LoadActor( "bg" )..{
-			OnCommand=cmd(Center;FullScreen);
-		}
+			OnCommand=cmd(FullScreen);
+		};
+		LoadActor( "songbg" )..{
+			OnCommand=cmd(Center;addy,173);
+		};
 	};
 end;
 
