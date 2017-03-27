@@ -31,6 +31,10 @@ t[#t+1] = LoadActor("_stageFrame")..{
 
 --Score frame
 --TODO ^_^
+t[#t+1] = LoadActor(THEME:GetPathG("ScreenGameplay", "ScoreFrame"))..{
+	StartCommand=cmd(y,SCREEN_BOTTOM-43);
+	FinishCommand=cmd(decelerate,0.5;diffusealpha,0);
+};
 
 --Artist
 --TODO ^_^
