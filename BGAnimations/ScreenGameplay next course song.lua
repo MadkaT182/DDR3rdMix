@@ -63,7 +63,7 @@ t[#t+1] = Def.ActorFrame {
 	InitCommand=cmd(Center);
 	LoadFont("_artist") .. {
 		BeforeLoadingNextCourseSongMessageCommand=function(self)
-			local vSong = GAMESTATE:GetCurrentSong();
+			local vSong = SCREENMAN:GetTopScreen():GetNextCourseSong();
 			local songtit = vSong:GetDisplayMainTitle();
 			local sText = ""
 
