@@ -2,8 +2,10 @@ local t = Def.ActorFrame {};
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "../doorbg" )..{
-		OnCommand=cmd(Center;FullScreen);
+		OnCommand=cmd(FullScreen);
 	};
+	--Discs
+	LoadActor("discs")..{};
 };
 
 t[#t+1] = Def.ActorFrame {
