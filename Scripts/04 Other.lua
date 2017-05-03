@@ -21,3 +21,9 @@ function LoadStepsDisplayGameplayFrame(self,player)
 	if player == PLAYER_2 then state = state + 1; end;
 	return state;
 end;
+
+function GetCoursesToShowRanking()
+	local CoursesToShowRanking = PREFSMAN:GetPreference("CoursesToShowRanking")
+	if CoursesToShowRanking ~= "" then return CoursesToShowRanking end
+	return "FAVORITE SONG.crs,KONAMI ORIGINAL.crs,SPECIAL.crs"
+end
