@@ -17,7 +17,9 @@ t[#t+1] = LoadFont("_nonstop") .. {
 };
 
 --Course Contents
-t[#t+1] = LoadActor("courselist") .. {};
+t[#t+1] = LoadActor("courselist")..{
+	OnCommand=cmd(x,SCREEN_CENTER_X-304;y,SCREEN_CENTER_Y);
+};
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "selcours" )..{
