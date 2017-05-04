@@ -46,4 +46,12 @@ t[#t+1] = Def.ActorFrame {
 	}
 };
 
+--Sound
+t[#t+1] = Def.ActorFrame {
+	LoadActor("../_doorclose/close")..{
+		StartTransitioningCommand=cmd(play);
+	};
+};
+
+
 return t
