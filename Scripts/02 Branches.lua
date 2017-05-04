@@ -14,6 +14,24 @@ function CompanyScreen()
 	end;
 end;
 
+-- Show the special endings
+function DDRCredits()
+	if GAMESTATE:IsEventMode() then
+		return SelectMusicOrCourse();
+	end
+
+	--SSS
+	if STATSMAN:GetBestFinalGrade() == 'Grade_Tier01' then
+		return "ScreenEndingBest";
+	end;
+	--SS
+	if STATSMAN:GetBestFinalGrade() == 'Grade_Tier02' then
+		return "ScreenEndingNormal";
+	else
+		return "ScreenGameOver";
+	end;
+end
+
 -- used for various SMOnline-enabled screens:
 function SMOnlineScreen()
 	for pn in ivalues(GAMESTATE:GetHumanPlayers()) do
@@ -142,7 +160,8 @@ Branch = {
 			if not GAMESTATE:IsCourseMode() then
 				return "ScreenEvaluationSummary"
 			else
-				return GameOverOrContinue()
+				--return GameOverOrContinue()
+				return DDRCredits()
 			end
 		else
 			return SelectMusicOrCourse()
@@ -251,7 +270,8 @@ Branch = {
 		return IsNetConnected() and "ScreenTitleMenu" or "ScreenTitleMenu"
 	end,
  	AfterSaveSummary = function()
-		return GameOverOrContinue()
+		--return GameOverOrContinue()
+		return DDRCredits()
 --		[[ Enable when Finished ]]
 -- 		return GAMESTATE:AnyPlayerHasRankingFeats() and "ScreenNameEntryTraditional" or "ScreenGameOver"
 	end,
