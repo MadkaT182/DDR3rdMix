@@ -1,90 +1,74 @@
-local function CreditsText( pn )
-	local text = LoadFont(Var "LoadingScreen","credits") .. {
-		InitCommand=function(self)
-			self:name("Credits" .. PlayerNumberToString(pn))
-			ActorUtil.LoadAllCommandsAndSetXY(self,Var "LoadingScreen");
-		end;
-		UpdateTextCommand=function(self)
-			local str = ScreenSystemLayerHelpers.GetCreditsMessage(pn);
-			self:settext(str);
-		end;
-		UpdateVisibleCommand=function(self)
-			local screen = SCREENMAN:GetTopScreen();
-			local bShow = true;
-			if screen then
-				local sClass = screen:GetName();
-				bShow = THEME:GetMetric( sClass, "ShowCreditDisplay" );
-			end
+local function CreditsText(playr)
+	local posX=SCREEN_CENTER_X-256;
 
-			self:visible( bShow );
-		end
+	if playr == 'PLAYER_2' then
+		posX=SCREEN_CENTER_X+64;
+	end
+
+	return LoadFont("ScreenSystemLayer credits normal")..{
+		InitCommand=cmd(x,posX;y,SCREEN_BOTTOM-16;playcommand,"Refresh");
+		RefreshCommand=function(self)
+			if GAMESTATE:GetCoinMode() == 'CoinMode_Free' then
+				self:diffusealpha(0);
+			elseif GAMESTATE:IsEventMode() then
+				self:diffusealpha(0);
+			else
+				local coins = GAMESTATE:GetCoins()
+				local coinsPerCredit = PREFSMAN:GetPreference('CoinsPerCredit')
+				local credits=math.floor(coins/coinsPerCredit)
+				local remainder=math.mod(coins,coinsPerCredit)
+				local cStr='CREDIT(S):'
+				local cSuff=""
+
+				if credits < 10 then
+					cStr=cStr.." "..credits
+				else
+					cStr=cStr..credits
+				end
+
+				if coinsPerCredit > 1 then
+					cStr=cStr..' ('..remainder..'/'..coinsPerCredit..')'
+				end
+				self:horizalign(left)
+				self:settext(cStr)
+				self:diffusealpha(1);
+			end
+		end;
+		CoinInsertedMessageCommand=cmd(stoptweening;playcommand,"Refresh");
+		RefreshCreditTextMessageCommand=cmd(stoptweening;playcommand,"Refresh");
+		PlayerJoinedMessageCommand=cmd(stoptweening;playcommand,"Refresh");
+		ScreenChangedMessageCommand=cmd(stoptweening;playcommand,"Refresh");
 	};
-	return text;
+
 end;
 
---[[ local function PlayerPane( PlayerNumber ) 
-	local t = Def.ActorFrame {
-		InitCommand=function(self)
-			self:name("PlayerPane" .. PlayerNumberToString(PlayerNumber));
-	-- 		ActorUtil.LoadAllCommandsAndSetXY(self,Var "LoadingScreen");
-		end
-	};
-	t[#t+1] = Def.ActorFrame {
-		Name = "Background";
-		Def.Quad {
-			InitCommand=cmd(zoomto,160,28;queuecommand,"On");
-			OnCommand=cmd(diffuse,PlayerColor(PlayerNumber);fadebottom,1);
-		};
-	};
-	t[#t+1] = LoadFont("Common","Normal") .. {
-		Name = "PlayerText";
-		InitCommand=cmd(x,-60;maxwidth,80/0.5;zoom,0.5;queuecommand,"On");
-		OnCommand=cmd(playcommand,"Set");
-		SetCommand=function(self)
-			local profile = PROFILEMAN:GetProfile( PlayerNumber) or PROFILEMAN:GetMachineProfile()
-			if profile then
-				self:settext( profile:GetDisplayName() );
+local function OtherText()
+	return LoadFont("ScreenSystemLayer credits normal")..{
+		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_BOTTOM-16;playcommand,"Refresh");
+		RefreshCommand=function(self)
+			if GAMESTATE:GetCoinMode() == 'CoinMode_Free' then
+				self:settext("FREE PLAY")
+				self:diffusealpha(1);
+			elseif GAMESTATE:IsEventMode() then
+				self:settext("EVENT MODE")
+				self:diffusealpha(1);
 			else
-				self:settext( "NoProf" );
+				self:diffusealpha(0);
 			end
 		end;
+		CoinInsertedMessageCommand=cmd(stoptweening;playcommand,"Refresh");
+		RefreshCreditTextMessageCommand=cmd(stoptweening;playcommand,"Refresh");
+		PlayerJoinedMessageCommand=cmd(stoptweening;playcommand,"Refresh");
+		ScreenChangedMessageCommand=cmd(stoptweening;playcommand,"Refresh");
 	};
-	return t
-end --]]
---
+end;
+
 local t = Def.ActorFrame {}
-	-- Aux
-t[#t+1] = LoadActor(THEME:GetPathB("ScreenSystemLayer","aux"));
-	-- Credits
+
 t[#t+1] = Def.ActorFrame {
---[[  	PlayerPane( PLAYER_1 ) .. {
-		InitCommand=cmd(x,scale(0.125,0,1,SCREEN_LEFT,SCREEN_WIDTH);y,SCREEN_BOTTOM-16)
-	}; --]]
- 	CreditsText( PLAYER_1 );
-	CreditsText( PLAYER_2 ); 
-};
-	-- Text
-t[#t+1] = Def.ActorFrame {
-	Def.Quad {
-		InitCommand=cmd(zoomtowidth,SCREEN_WIDTH;zoomtoheight,30;horizalign,left;vertalign,top;y,SCREEN_TOP;diffuse,color("0,0,0,0"));
-		OnCommand=cmd(finishtweening;diffusealpha,0.85;);
-		OffCommand=cmd(sleep,3;linear,0.5;diffusealpha,0;);
-	};
-	LoadFont("Common","Normal") .. {
-		Name="Text";
-		InitCommand=cmd(maxwidth,750;horizalign,left;vertalign,top;y,SCREEN_TOP+10;x,SCREEN_LEFT+10;shadowlength,1;diffusealpha,0;);
-		OnCommand=cmd(finishtweening;diffusealpha,1;zoom,0.5);
-		OffCommand=cmd(sleep,3;linear,0.5;diffusealpha,0;);
-	};
-	SystemMessageMessageCommand = function(self, params)
-		self:GetChild("Text"):settext( params.Message );
-		self:playcommand( "On" );
-		if params.NoAnimate then
-			self:finishtweening();
-		end
-		self:playcommand( "Off" );
-	end;
-	HideSystemMessageMessageCommand = cmd(finishtweening);
+ 	CreditsText( 'PLAYER_1' );
+	CreditsText( 'PLAYER_2' );
+	OtherText();
 };
 
 return t;
