@@ -7,17 +7,14 @@ return Def.ActorFrame {
 		Text="SW   1  2  3  4";
 		InitCommand=cmd(x,SCREEN_CENTER_X-177;y,SCREEN_CENTER_Y-153;horizalign,left);
 	};
-
 	LoadFont("_service")..{
 		Text="'  '  '     OFF";
 		InitCommand=cmd(x,SCREEN_CENTER_X-92;y,SCREEN_CENTER_Y-133;horizalign,left);
 	};
-
 	LoadFont("_service")..{
 		Text="&  ON";
 		InitCommand=cmd(x,SCREEN_CENTER_X+61;y,SCREEN_CENTER_Y-113;horizalign,left);
 	};
-
 	LoadFont("_service")..{
 		Text="TO MODIFY SETTINGS, OPERATE\nTHE RELEVANT DIP SWITCH\nON THE PCB.";
 		InitCommand=cmd(x,SCREEN_CENTER_X-225;y,SCREEN_TOP+168;horizalign,left);
@@ -47,7 +44,3 @@ return Def.ActorFrame {
 		InitCommand=cmd(x,SCREEN_CENTER_X-27;y,SCREEN_BOTTOM-37);
 	};
 };
-
-
---& Rojo
---' Verde
