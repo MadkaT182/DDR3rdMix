@@ -74,7 +74,7 @@ t[#t+1] = LoadFont("_service")..{
 		self:queuecommand("Update");
 	end;
 	UpdateCommand=function(self)
-		self:diffuse(Color("Green"));
+		self:diffuse(color("#00FF00"));
 		self:settextf("OK");
 	end;
 };
@@ -87,7 +87,7 @@ t[#t+1] = LoadFont("_service")..{
 		self:queuecommand("Update");
 	end;
 	UpdateCommand=function(self)
-		self:diffuse(Color("Green"));
+		self:diffuse(color("#00FF00"));
 		self:settextf("OK");
 	end;
 };
@@ -100,7 +100,7 @@ t[#t+1] = LoadFont("_service")..{
 		self:queuecommand("Update");
 	end;
 	UpdateCommand=function(self)
-		self:diffuse(Color("Green"));
+		self:diffuse(color("#00FF00"));
 		self:settextf("OK");
 	end;
 };
@@ -113,7 +113,7 @@ t[#t+1] = LoadFont("_service")..{
 		self:queuecommand("Update");
 	end;
 	UpdateCommand=function(self)
-		self:diffuse(Color("Green"));
+		self:diffuse(color("#00FF00"));
 		self:settextf("OK");
 	end;
 };
@@ -126,7 +126,7 @@ t[#t+1] = LoadFont("_service")..{
 		self:queuecommand("Update");
 	end;
 	UpdateCommand=function(self)
-		self:diffuse(Color("Green"));
+		self:diffuse(color("#00FF00"));
 		self:settextf("OK");
 	end;
 };
@@ -139,7 +139,7 @@ t[#t+1] = LoadFont("_service")..{
 		self:queuecommand("Update");
 	end;
 	UpdateCommand=function(self)
-		self:diffuse(Color("Green"));
+		self:diffuse(color("#00FF00"));
 		self:settextf("OK");
 	end;
 };
@@ -152,7 +152,7 @@ t[#t+1] = LoadFont("_service")..{
 		self:queuecommand("Update");
 	end;
 	UpdateCommand=function(self)
-		self:diffuse(Color("Green"));
+		self:diffuse(color("#00FF00"));
 		self:settextf("OK");
 	end;
 };
@@ -165,7 +165,7 @@ t[#t+1] = LoadFont("_service")..{
 		self:queuecommand("Update");
 	end;
 	UpdateCommand=function(self)
-		self:diffuse(Color("Green"));
+		self:diffuse(color("#00FF00"));
 		self:settextf("OK");
 	end;
 };
