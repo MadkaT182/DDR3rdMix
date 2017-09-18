@@ -1,5 +1,5 @@
 local t = Def.ActorFrame{
-	LoadActor("bgtile")..{
+	LoadActor("bghome")..{
 		InitCommand=cmd(FullScreen;);
 		OnCommand=function(self)
 			local w = DISPLAY:GetDisplayWidth() / self:GetWidth();
