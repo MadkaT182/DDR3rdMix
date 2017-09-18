@@ -14,6 +14,10 @@ function CompanyScreen()
 	end;
 end;
 
+function ChkBoot()
+	return "ScreenBoot";
+end;
+
 -- Show the special endings
 function DDRCredits()
 	if GAMESTATE:IsEventMode() then
@@ -148,7 +152,12 @@ Branch = {
 		end
 	end,
 	AfterProfileLoad = function()
-		return "ScreenSelectPlayMode"
+		--Check if arecharacters installed
+		if CHARMAN:GetAllCharacters() ~= nil then
+			return "ScreenSelectCharacter"
+		else
+			return "ScreenSelectPlayMode"
+		end
 	end,
 	AfterProfileSave = function()
 		-- Might be a little too broken? -- Midiman
