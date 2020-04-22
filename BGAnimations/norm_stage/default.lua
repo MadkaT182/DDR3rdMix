@@ -5,7 +5,7 @@ local t = LoadActor("stage") .. {
 		StageToShow = GAMESTATE:GetCurrentStage();
 		StageNumber = GAMESTATE:GetCurrentStageIndex();
 	} );
+	Condition=not GAMESTATE:IsDemonstration()
 };
 
 return t;
-
