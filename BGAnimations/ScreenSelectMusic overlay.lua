@@ -1,27 +1,14 @@
-local t = Def.ActorFrame {};
-local hFix=0;
-local vFix=0;
-
-if not GAMESTATE:IsCourseMode() then
-	--PlayMode
-	t[#t+1] = Def.ActorFrame {
-		LoadActor( "_style" )..{
-			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+82);
-		}
+return Def.ActorFrame {
+	LoadActor( "_style" )..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+82);
 	};
-else
-	vFix=105;
-	hFix=19;
-end;
-
---Player Indicator
-t[#t+1] = Def.ActorFrame {
 	LoadActor("Ind1p")..{
-		InitCommand=cmd(x,SCREEN_LEFT+147+hFix;y,SCREEN_BOTTOM-190+vFix);
+		OnCommand=cmd(x,SCREEN_LEFT+128;y,SCREEN_BOTTOM-197);
 	};
 	LoadActor("Ind2p")..{
-		InitCommand=cmd(x,SCREEN_RIGHT-147-hFix;y,SCREEN_BOTTOM-190+vFix;);
+		OnCommand=cmd(x,SCREEN_RIGHT-128;y,SCREEN_BOTTOM-197);
+	};
+	LoadActor("norm_stage")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-108;y,SCREEN_CENTER_Y-16);
 	};
 };
-
-return t
