@@ -1,11 +1,3 @@
---[[
-[en] The Branch table replaces the various functions used for branching in the
-StepMania 4 default theme.
-Lines with a single string (e.g. TitleMenu = "ScreenTitleMenu") are referenced
-in the metrics as Branch.keyname.
-If the line is a function, you'll have to use Branch.keyname() instead.
---]]
-
 function CompanyScreen()
 	if GAMESTATE:GetCoinMode() == 'CoinMode_Pay' then
 		return "ScreenCompany";
@@ -36,7 +28,6 @@ function DDRCredits()
 	end;
 end
 
--- used for various SMOnline-enabled screens:
 function SMOnlineScreen()
 	for pn in ivalues(GAMESTATE:GetHumanPlayers()) do
 		if not IsSMOnlineLoggedIn(pn) then
@@ -256,6 +247,12 @@ Branch = {
 			local stagesLeft = GAMESTATE:GetSmallestNumStagesLeftForAnyHumanPlayer()
 			local allFailed = STATSMAN:GetCurStageStats():AllFailed()
 			local song = GAMESTATE:GetCurrentSong()
+
+			--Skip Extra stages
+			if GAMESTATE:IsAnExtraStage() then
+				return "ScreenEvaluationSummary"
+				-- return "ScreenProfileSaveSummary"
+			end
 
 			if GAMESTATE:IsEventMode() or stagesLeft >= 1 then
 				return "ScreenProfileSave"
