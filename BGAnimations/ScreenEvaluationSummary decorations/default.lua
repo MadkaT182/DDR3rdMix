@@ -15,7 +15,7 @@ t[#t+1] = LoadActor("grade")..{
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "cd" )..{
 		InitCommand=cmd(zoom,.3281);
-		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+43);
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+43;addx,-STATSMAN:GetStagesPlayed()/2*78);
 	}
 };
 
