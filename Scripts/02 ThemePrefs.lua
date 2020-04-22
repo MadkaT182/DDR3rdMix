@@ -4,51 +4,21 @@ end
 
 local Prefs =
 {
-	BOOT =
+	SongOpt =
 	{
 		Default = false,
 		Choices = { OptionNameString('Off'), OptionNameString('On') },
 		Values = { false, true }
 	},
-	SONGOPT =
+	DefSort =
 	{
-		Default = 'No',
-		Choices = { OptionNameString('No'), OptionNameString('DDR'), OptionNameString('PRO') },
-		Values = { 'No', 'DDR', 'PRO' }
-	},
-	TITLEBG =
-	{
-		Default = '3rdMix',
-		Choices = { OptionNameString('3rdMix'), OptionNameString('3rdMixPlus'), OptionNameString('3rdReMix'), OptionNameString('SSR') },
-		Values = { '3rdMix', '3rdMixPlus', '3rdReMix', 'SSR' }
-	},
-	COMBOU =
-	{
-		Default = false,
-		Choices = { OptionNameString('Off'), OptionNameString('On') },
-		Values = { false, true }
-	},
-	HDEFNS =
-	{
-		Default = false,
-		Choices = { OptionNameString('No'), OptionNameString('Yes') },
-		Values = { false, true }
+		Default = 0,
+		Choices = { "Original", "Group", "Title", "BPM", "Popularity", "TopGrades", "Artist", "Genre" },
+		Values = { 0, 1, 2, 3, 4, 5, 6, 7 }
 	},
 }
 
 ThemePrefs.InitAll(Prefs)
-
--- function InitUserPrefs()
-
--- 	for k, v in pairs(Prefs) do
-
--- 		local GetPref = type(v) == "boolean" and GetUserPrefB or GetUserPref
--- 		if GetPref(k) == nil then
--- 			SetUserPref(k, v)
--- 		end
--- 	end
-
--- end
 
 function OptionRowDummySound()
 	return {

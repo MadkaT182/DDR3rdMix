@@ -28,6 +28,7 @@ function Actor:LyricCommand(side)
 		self:cropleft(0)
 	end
 
+	-- THEME:GetMetric("ScreenGameplay","ScoreP1X")
 	self:addy(50);
 	self:diffusealpha(0)
 	self:linear(0.2)

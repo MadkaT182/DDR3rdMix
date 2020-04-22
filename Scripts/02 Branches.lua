@@ -194,7 +194,7 @@ Branch = {
 		if restricted[pm] then
 			optionsScreen = "ScreenPlayerOptionsRestricted"
 		end
-		if SCREENMAN:GetTopScreen():GetGoToOptions() then
+		if SCREENMAN:GetTopScreen():GetGoToOptions() and ThemePrefs.Get("SongOpt") then
 			return optionsScreen
 		else
 			return "ScreenStageInformation"
