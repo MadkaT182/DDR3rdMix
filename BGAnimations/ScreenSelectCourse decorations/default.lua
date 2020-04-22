@@ -25,4 +25,7 @@ return Def.ActorFrame {
 	LoadActor("../Ind2p")..{
 		OnCommand=cmd(x,SCREEN_RIGHT-167;y,SCREEN_BOTTOM-84;);
 	};
+	Def.Quad{
+		OnCommand=cmd(draworder,-2;x,SCREEN_CENTER_X+184;y,SCREEN_CENTER_Y-51;zoomto,240,18;diffuse,color("#C22727"));
+	};
 };
