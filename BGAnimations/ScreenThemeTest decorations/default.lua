@@ -26,6 +26,6 @@
 -- };
 
 -- return t
-return Def.ActorFrame {
 
+return Def.ActorFrame {
 };
