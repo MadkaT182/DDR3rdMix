@@ -108,3 +108,33 @@ end
 return caseimg;
 
 end;
+
+function GetDifficultyColor(difficulty)
+	local Colors = {
+		["Difficulty_Beginner"] = "#50AAF8",
+		["Difficulty_Easy"] = "#E0C048",
+		["Difficulty_Medium"] = "#F85850",
+		["Difficulty_Hard"] = "#38B078",
+		["Difficulty_Challenge"] = "#9350F8",
+		["Difficulty_Edit"] = "#FFFFFF",
+	}
+	local Color = Colors[difficulty] or "#FFFFFF";
+	return Color;
+end
+
+function GetDifficultyName(difficulty)
+	local Names = {
+		[1] = "SIMPLE",
+		[2] = "MODERATE",
+		[3] = "ORDINARY",
+		[4] = "SUPERIOR",
+		[5] = "MARVELOUS",
+		[6] = "GENUINE",
+		[7] = "PARAMOUNT",
+		[8] = "EXORBITANT",
+		[9] = "CATASTROPHIC",
+		[999] = ""
+	}
+	local DiffName = Names[difficulty] or "CATASTROPHIC";
+	return DiffName;
+end

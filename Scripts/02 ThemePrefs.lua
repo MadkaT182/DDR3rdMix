@@ -16,6 +16,12 @@ local Prefs =
 		Choices = { "Original", "Group", "Title", "BPM", "Popularity", "TopGrades", "Artist", "Genre" },
 		Values = { 0, 1, 2, 3, 4, 5, 6, 7 }
 	},
+	CboUnder =
+	{
+		Default = true,
+		Choices = { OptionNameString('Off'), OptionNameString('On') },
+		Values = { false, true }
+	},
 }
 
 ThemePrefs.InitAll(Prefs)
