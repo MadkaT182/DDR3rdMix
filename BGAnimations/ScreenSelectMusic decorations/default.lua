@@ -1,5 +1,8 @@
 return Def.ActorFrame {
 	LoadActor("cd");
+	LoadActor("diff")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+124);
+	};
 	LoadActor("title");
 	LoadActor("arr1")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-172;y,SCREEN_CENTER_Y+54);
