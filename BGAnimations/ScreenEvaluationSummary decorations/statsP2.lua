@@ -109,6 +109,17 @@ t[#t+1] = LoadFont("Combo numbers")..{
 	OnCommand=function(self)
 		self:settextf(Combo);
 	end;
+	Condition=not STATSMAN:GetCurStageStats():GetAccumPlayedStageStats(PLAYER_2):FullCombo()
+};
+t[#t+1] = LoadFont("FC numbers")..{
+	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-33;addx,220;horizalign,right);
+	OnCommand=function(self)
+		self:settextf(Combo);
+		self:textglowmode('TextGlowMode_Inner');
+		self:glowblink();
+		self:effectperiod(.1);
+	end;
+	Condition=STATSMAN:GetCurStageStats():GetAccumPlayedStageStats(PLAYER_2):FullCombo()
 };
 t[#t+1] = LoadFont("_resultLbl")..{
 	InitCommand=cmd(player,PLAYER_2;y,SCREEN_CENTER_Y-33;addx,88;horizalign,right);

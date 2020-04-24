@@ -109,9 +109,20 @@ t[#t+1] = LoadFont("Combo numbers")..{
 	OnCommand=function(self)
 		self:settextf(Combo);
 	end;
+	Condition=not STATSMAN:GetAccumPlayedStageStats():GetPlayerStageStats(PLAYER_1):FullCombo()
+};
+t[#t+1] = LoadFont("FC numbers")..{
+	InitCommand=cmd(player,PLAYER_1;y,SCREEN_CENTER_Y-33;addx,28;horizalign,right;);
+	OnCommand=function(self)
+		self:settextf(Combo);
+		self:textglowmode('TextGlowMode_Inner');
+		self:glowblink();
+		self:effectperiod(.1);
+	end;
+	Condition=STATSMAN:GetAccumPlayedStageStats():GetPlayerStageStats(PLAYER_1):FullCombo()
 };
 t[#t+1] = LoadFont("_resultLbl")..{
-	InitCommand=cmd(player,PLAYER_1;y,SCREEN_CENTER_Y-33;addx,-88;horizalign,right;);
+	InitCommand=cmd(player,PLAYER_1;y,SCREEN_CENTER_Y-33;addx,-88;horizalign,right;diffuse,color("#E85038"));
 	OnCommand=function(self)
 		self:settextf("MAX COMBO");
 	end;
