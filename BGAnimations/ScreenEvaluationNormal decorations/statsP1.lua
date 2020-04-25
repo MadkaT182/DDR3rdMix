@@ -122,7 +122,7 @@ t[#t+1] = LoadFont("FC numbers")..{
 	Condition=STATSMAN:GetCurStageStats():GetPlayerStageStats(PLAYER_1):FullCombo()
 };
 t[#t+1] = LoadFont("_resultLbl")..{
-	InitCommand=cmd(player,PLAYER_1;y,SCREEN_CENTER_Y-33;addx,-88;horizalign,right;diffuse,color("#FF0000"));
+	InitCommand=cmd(player,PLAYER_1;y,SCREEN_CENTER_Y-33;addx,-88;horizalign,right;diffuse,color("#E85038"));
 	OnCommand=function(self)
 		self:settextf("MAX COMBO");
 	end;
