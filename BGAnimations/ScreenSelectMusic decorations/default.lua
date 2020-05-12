@@ -3,7 +3,9 @@ return Def.ActorFrame {
 	LoadActor("diff")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+124);
 	};
-	LoadActor("title");
+	LoadActor("title")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X+80;y,SCREEN_CENTER_Y+4;draworder,2);
+	};
 	LoadActor("arr1")..{
 		OnCommand=cmd(x,SCREEN_CENTER_X-172;y,SCREEN_CENTER_Y+54);
 	};
