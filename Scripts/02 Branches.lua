@@ -10,6 +10,10 @@ function ChkBoot()
 	return "ScreenBoot";
 end;
 
+function ChkPlayMode()
+	return GMode == "Bonus" and "ScreenSelectMusicBonus" or "ScreenSelectPlayMode"
+end
+
 -- Show the special endings
 function DDRCredits()
 	if GAMESTATE:IsEventMode() then
@@ -91,10 +95,6 @@ Branch = {
 		end
 	end,
 	StartGame = function()
-		-- Check to see if there are 0 songs installed. Also make sure to check
-		-- that the additional song count is also 0, because there is
-		-- a possibility someone will use their existing StepMania simfile
-		-- collection with sm-ssc via AdditionalFolders/AdditionalSongFolders.
 		if SONGMAN:GetNumSongs() == 0 and SONGMAN:GetNumAdditionalSongs() == 0 then
 			return "ScreenHowToInstallSongs"
 		end
@@ -136,18 +136,20 @@ Branch = {
 	end,
 	AfterSelectProfile = function()
 		if ( THEME:GetMetric("Common","AutoSetStyle") == true ) then
-			-- use SelectStyle in online...
-			return IsNetConnected() and "ScreenSelectStyle" or "ScreenSelectPlayMode"
+			if IsNetConnected() then
+				return "ScreenSelectStyle"
+			else
+				return GMode == "Bonus" and "ScreenSelectMusicBonus" or "ScreenSelectPlayMode"
+			end
 		else
 			return "ScreenSelectStyle"
 		end
 	end,
 	AfterProfileLoad = function()
-		--Check if arecharacters installed
 		if CHARMAN:GetAllCharacters() ~= nil then
 			return "ScreenSelectCharacter"
 		else
-			return "ScreenSelectPlayMode"
+			return GMode == "Bonus" and "ScreenSelectMusicBonus" or "ScreenSelectPlayMode"
 		end
 	end,
 	AfterProfileSave = function()

@@ -1,4 +1,8 @@
-local t = Def.ActorFrame {};
+local t = Def.ActorFrame {
+	GainFocusCommand=function(self)
+		GMode="Nonstop";
+	end;
+};
 
 t[#t+1] = Def.ActorFrame {
 	InitCommand=cmd(x,SCREEN_CENTER_X+190;y,SCREEN_CENTER_Y-101);

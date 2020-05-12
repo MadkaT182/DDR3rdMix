@@ -3,16 +3,10 @@ local vMode = "normal";
 
 if GAMESTATE:IsEventMode() then
 	vMode = "event";
--- else
--- 	if getenv("SPMode") == "soft" then
--- 		vMode = "soft";
--- 	end
-
--- 	if getenv("SPMode") == "medium" then
--- 		vMode = "medium";
--- 	end
-
 else
+	if GMode then
+		vMode = GMode;
+	end
 	if GAMESTATE:IsCourseMode() then
 		vMode = "nonstop";
 	end

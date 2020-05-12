@@ -1,4 +1,5 @@
 local t = Def.ActorFrame {};
+InitVars()
 
 t[#t+1] = Def.ActorFrame {
 	LoadActor( "../doorbg" )..{

@@ -12,3 +12,8 @@ function GetSortName()
 	local name = sortList[ThemePrefs.Get("DefSort")] or "Preferred";
 	return name;
 end
+
+function InitVars()
+	--Reset and track globals
+	GMode="normal";
+end

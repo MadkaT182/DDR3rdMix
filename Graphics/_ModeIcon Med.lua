@@ -1,4 +1,8 @@
-local t = Def.ActorFrame {};
+local t = Def.ActorFrame {
+	GainFocusCommand=function(self)
+		GMode="Medium";
+	end;
+};
 
 t[#t+1] = Def.ActorFrame {
 	InitCommand=cmd(Center);
