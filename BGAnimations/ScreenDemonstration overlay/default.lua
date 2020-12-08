@@ -1,19 +1,9 @@
-local t = Def.ActorFrame{};
-
-t[#t+1] = Def.ActorFrame {
+return Def.ActorFrame{
 	LoadActor("demb")..{
-		OnCommand=cmd(diffusealpha,0;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;sleep,0.7;diffusealpha,0.8;sleep,0.5;queuecommand,"On");
-	};
-};
-
-t[#t+1] = Def.ActorFrame {
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;diffuseblink;effectcolor1,1,1,1,0;effectcolor2,1,1,1,.8;effectperiod,.5);
+	};	
 	LoadActor("demw")..{
-		OnCommand=cmd(diffusealpha,0.5;x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;sleep,0.7;diffusealpha,0;sleep,0.5;queuecommand,"On");
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;diffuseblink;effectcolor1,1,1,1,.5;effectcolor2,1,1,1,0;effectperiod,.5);
 	};
+	LoadActor("../_arcade_decorations");
 };
-
-t[#t+1] = Def.ActorFrame {
-	LoadActor("../_arcade_decorations")..{};
-};
-
-return t;

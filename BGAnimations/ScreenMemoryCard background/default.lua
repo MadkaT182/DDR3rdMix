@@ -1,5 +1,5 @@
 return Def.ActorFrame {
-	LoadActor( "memcard" )..{
-		OnCommand=cmd(Center;FullScreen);
+	LoadActor("memcard")..{
+		OnCommand=cmd(FullScreen);
 	};
 }

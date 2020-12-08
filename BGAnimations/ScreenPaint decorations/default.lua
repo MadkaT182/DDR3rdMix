@@ -1,0 +1,26 @@
+return Def.ActorFrame {
+	LoadActor("title")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,40);
+	};
+	LoadActor("topleft")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-156;y,SCREEN_CENTER_Y-136);
+	};
+	LoadActor("topright")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X+162;y,SCREEN_CENTER_Y-136);
+	};
+	LoadActor("leftframe")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-264;y,SCREEN_CENTER_Y+65);
+	};
+	LoadActor("centerframe")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X-68;y,SCREEN_CENTER_Y+52);
+	};
+	LoadActor("rightframe")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X+190;y,SCREEN_CENTER_Y+28);
+	};
+	LoadActor("info")..{
+		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y+140);
+	};
+	LoadActor(THEME:GetPathS("Common","back"))..{
+		OffCommand=cmd(play);
+	};
+}

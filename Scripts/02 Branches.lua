@@ -147,7 +147,7 @@ Branch = {
 	end,
 	AfterProfileLoad = function()
 		if CHARMAN:GetAllCharacters() ~= nil then
-			return "ScreenSelectCharacter"
+			return ChkPlayMode()
 		else
 			return GMode == "Bonus" and "ScreenSelectMusicBonus" or "ScreenSelectPlayMode"
 		end
@@ -249,6 +249,11 @@ Branch = {
 			local stagesLeft = GAMESTATE:GetSmallestNumStagesLeftForAnyHumanPlayer()
 			local allFailed = STATSMAN:GetCurStageStats():AllFailed()
 			local song = GAMESTATE:GetCurrentSong()
+
+			--Skip aditional stages in some modes
+			if GMode == "Bonus" then
+				return "ScreenGameOver"
+			end
 
 			--Skip Extra stages
 			if GAMESTATE:IsAnExtraStage() then

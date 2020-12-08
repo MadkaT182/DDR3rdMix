@@ -1,5 +1,6 @@
 return Def.ActorFrame {
-	LoadActor( "bg" )..{
+	LoadActor("bg")..{
 		OnCommand=cmd(Center);
 	};
+	LoadActor("overlay")..{};
 }

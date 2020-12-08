@@ -1,4 +1,4 @@
-local t = Def.ActorFrame {
+return Def.ActorFrame {
 	Def.ActorFrame{
 		LoadActor("nsr")..{
 			OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+37;);
@@ -11,27 +11,15 @@ local t = Def.ActorFrame {
 		};
 		Condition=not GAMESTATE:IsCourseMode();
 	};
-};
-
---Grade
-t[#t+1] = LoadActor("grade")..{
-};
-
---CD
-t[#t+1] = Def.ActorFrame {
-	LoadActor( "cd" )..{
+	LoadActor("grade");
+	LoadActor("cd")..{
 		InitCommand=cmd(zoom,.3281);
 		OnCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+43);
-	}
-};
-
-t[#t+1] = LoadActor("stats")..{
-	OnCommand=cmd(y,SCREEN_CENTER_Y-64)
-};
-
-if GAMESTATE:IsCourseMode() then
-	--Course Name
-	t[#t+1] = LoadFont("ScreenSystemLayer credits normal") .. {
+	};
+	LoadActor("stats")..{
+		OnCommand=cmd(y,SCREEN_CENTER_Y-64)
+	};
+	LoadFont("ScreenSystemLayer credits normal") .. {
 		InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_TOP+68;maxwidth,SCREEN_WIDTH;playcommand,"Set");
 		SetCommand=function(self)
 			local course = GAMESTATE:GetCurrentCourse();
@@ -44,7 +32,6 @@ if GAMESTATE:IsCourseMode() then
 			end;
 		end;
 		OffCommand=cmd();
+		Condition=GAMESTATE:IsCourseMode()
 	};
-end
-
-return t
+};
